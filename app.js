@@ -404,8 +404,7 @@ try {
   }
 
   const result = await response.text();
-
-  $("aiResult").textContent = result;
+$("aiResult").innerHTML = DOMPurify.sanitize(marked.parse(result));
   $("aiStatus").textContent = "AI analysis completed successfully!";
 } catch (error) {
   $("aiStatus").textContent = "AI analysis failed. Please try again.";
