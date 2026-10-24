@@ -18,7 +18,7 @@ const aiResult = await response.text();
 if (!response.ok) {
   return {
     statusCode: 502,
-    body: "AI analysis failed. Please try again."
+   body: `n8n HTTP ${response.status}: ${aiResult}`
   };
 }
 return {
