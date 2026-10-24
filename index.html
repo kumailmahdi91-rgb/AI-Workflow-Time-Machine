@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080f22" />
+    <title>AI Workflow Time Machine | Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-icon">◈</span
+          ><span
+            >TIME<span class="accent">MACHINE</span
+            ><small>WORKFLOW INTELLIGENCE</small></span
+          >
+        </div>
+        <nav aria-label="Main navigation">
+          <a class="active" href="#dashboard">◫ <span>Dashboard</span></a
+          ><a href="#upload">⇧ <span>Workflow Upload</span></a
+          ><a href="#insights">✧ <span>AI Insights</span></a>
+        </nav>
+        <div class="side-bottom">AI Workflow Intelligence<span
+           class="status-dot"></span> <br /><small
+            >Workflow Analysis Dashboard</small
+          >
+        </div>
+      </aside>
+      <main id="dashboard">
+        <header class="topbar">
+          <button id="menuBtn" class="menu" aria-label="Toggle menu">☰</button>
+          <div>
+            <div class="eyebrow">WORKFLOW INTELLIGENCE / OVERVIEW</div>
+            <h1>Workflow <span class="gradient">Time Machine</span></h1>
+            <p>Understand your automation before it runs.</p>
+          </div>
+          <span class="pill"
+            ><span class="status-dot"></span> Local Analyzer</span
+          >
+        </header>
+        <section class="hero">
+          <div>
+            <span class="eyebrow cyan">◈ FUTURE-READY AUTOMATION</span>
+            <h2>
+              Predict. Simulate.<br /><span class="gradient">Optimize.</span>
+            </h2>
+            <p>
+              Upload an n8n workflow to explore its structure and prepare for
+              future simulation and AI analysis.
+            </p>
+            <a class="primary" href="#upload">Explore Workflow ↗</a>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orb"></div>
+            <div class="node n1">⚡ Trigger</div>
+            <div class="node n2">◈ Logic</div>
+            <div class="node n3">✧ AI</div>
+            <div class="node n4">✓ Output</div>
+          </div>
+        </section>
+        <section class="stats" aria-label="Workflow statistics">
+          <article class="stat">
+            <span>WORKFLOW NODES</span><strong id="nodesCount">06</strong
+            ><small>From loaded workflow</small>
+          </article>
+          <article class="stat">
+            <span>CONNECTIONS</span><strong id="connectionsCount">05</strong
+            ><small>Directed links</small>
+          </article>
+          <article class="stat">
+            <span>TRIGGER NODES</span><strong id="triggersCount">01</strong
+            ><small>Detected by name/type</small>
+          </article>
+          <article class="stat">
+            <span>WORKFLOW STATUS</span
+            ><strong id="workflowStatus" class="small-value">Demo</strong
+            ><small id="statusDetail">Load JSON to inspect</small>
+          </article>
+        </section>
+        <div class="columns">
+          <section class="panel" id="upload">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">STEP 01</span>
+                <h3>Import Workflow</h3>
+              </div>
+              <span class="tag">n8n JSON</span>
+            </div>
+            <div
+              id="dropzone"
+              class="dropzone"
+              tabindex="0"
+              role="button"
+              aria-label="Choose n8n JSON file"
+            >
+              <div class="upload-icon">⇧</div>
+              <h4>Drop your workflow here</h4>
+              <p>or click to browse your files</p>
+              <small>JSON only · Max 2 MB · processed locally</small
+              ><input
+                id="fileInput"
+                type="file"
+                accept=".json,application/json"
+                hidden
+              />
+            </div>
+            <div class="actions">
+              <button id="demoBtn" class="secondary">↺ Load Demo</button
+              ><button id="clearBtn" class="ghost">Clear</button>
+            </div>
+            <div id="message" class="message" role="status" aria-live="polite">
+              Demo workflow loaded. Upload your own to inspect it.
+            </div>
+          </section>
+          <section class="panel" id="simulation" hidden>
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">STEP 02</span>
+                <h3>Simulation Lab</h3>
+              </div>
+              <span class="tag amber">UNDER DEVELOPMENT</span>
+            </div>
+            <label for="requests">Request volume</label>
+            <div class="segmented" id="requests">
+              <button class="selected" data-volume="10">10</button
+              ><button data-volume="100">100</button
+              ><button data-volume="1000">1,000</button>
+            </div>
+            <div class="simulation-placeholder">
+              <div class="pulse-ring">◇</div>
+              <h4>Simulation engine not connected</h4>
+              <p>
+                In Phase 3, this section will calculate assumption-based
+                estimates. No performance predictions are available yet.
+              </p>
+            </div>
+            <button class="disabled-button" disabled>
+              Run Simulation · Coming Soon
+            </button>
+          </section>
+        </div>
+        <section class="panel lower" id="analysis">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">WORKFLOW VISUALIZATION</span>
+              <h3>Visual Workflow Map</h3>
+            </div>
+            <span class="tag">STATIC GRAPH</span>
+          </div>
+          <p class="help-text">
+            Arrows show exported n8n connections. Dashed lines represent AI/tool
+            links. Scroll sideways for larger workflows.
+          </p>
+          <div
+            id="workflowMap"
+            class="workflow-map"
+            aria-label="Workflow connection map"
+          ></div>
+        </section>
+        <section class="panel lower">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">WORKFLOW RISK DETECTION</span>
+              <h3>Workflow Risk Report</h3>
+            </div>
+            <span class="tag" id="riskSummary">NOT ANALYZED</span>
+          </div>
+          <p class="help-text">
+            These are structural checks, not proof that a workflow will fail. No
+            nodes are executed.
+          </p>
+          <div class="risk-stats">
+            <div><strong id="errorCount">0</strong><span>Errors</span></div>
+            <div><strong id="warningCount">0</strong><span>Warnings</span></div>
+            <div><strong id="infoCount">0</strong><span>Notes</span></div>
+          </div>
+          <div
+            id="riskList"
+            class="risk-list"
+            role="status"
+            aria-live="polite"
+          ></div>
+        </section>
+       
+<section class="panel lower" id="aiAnalysis">
+  <div class="panel-heading">
+    <div>
+      <span class="eyebrow">AI-POWERED WORKFLOW ANALYSIS</span>
+      <h3>Gemini AI Workflow Analyzer</h3>
+    </div>
+    <span class="tag">AI POWERED</span>
+  </div>
+
+  <p class="help-text">
+    Upload an n8n workflow and let Gemini AI analyze its risks,
+    structure, and possible improvements.
+  </p>
+
+  <div class="actions">
+    <button id="analyzeAiBtn" class="primary" type="button">
+      ✧ Analyze with Gemini AI
+    </button>
+  </div>
+
+  <div id="aiStatus" class="message" role="status" aria-live="polite">
+    Ready for AI analysis.
+  </div>
+
+  <div id="aiResult" class="risk-list" style="white-space: pre-wrap"></div>
+</section>
+ <section class="panel lower" id="insights">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">WORKFLOW STRUCTURE</span>
+              <h3>Node Explorer</h3>
+            </div>
+            <span class="tag">LOCAL ANALYSIS</span>
+          </div>
+          <div class="node-list" id="nodeList"></div>
+          <div class="insight-footer">
+            <span>✧ Intelligent workflow analysis powered by Google Gemini</span>
+<span id="workflowName">Demo: Customer Inquiry Flow</span>
+          </div>
+        </section>
+        <footer>
+          AI Workflow Time Machine
+          <span>AI-Powered Workflow Intelligence | Built with n8n & Google Gemini</span>
+        </footer>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
