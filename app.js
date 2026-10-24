@@ -412,3 +412,38 @@ try {
   console.error(error);
 }
 });
+
+// Simulation Lab — Request Volume Selection
+let selectedVolume = 10;
+
+document.querySelectorAll("#requests button").forEach((button) => {
+  button.addEventListener("click", () => {
+    selectedVolume = Number(button.dataset.volume);
+
+    document.querySelectorAll("#requests button").forEach((btn) => {
+      btn.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+    console.log("Selected simulation volume:", selectedVolume);
+  });
+});
+
+document.getElementById("runSimulation").addEventListener("click", () => {
+ const nodeCount = current.nodes.length;
+  const estimatedTime = nodeCount * 0.5 * selectedVolume;
+  const estimatedMinutes = estimatedTime / 60;
+  const totalExecutions = nodeCount * selectedVolume;
+
+  const resultBox = document.querySelector(".simulation-placeholder");
+
+  resultBox.innerHTML = `
+    <h4>Simulation Results</h4>
+    <p>Requests: ${selectedVolume}</p>
+    <p>Workflow Nodes: ${nodeCount}</p>
+    <p>Estimated Node Executions: ${totalExecutions.toLocaleString()}</p>
+    <p>Estimated Total Processing Time: ${estimatedTime.toFixed(1)} seconds</p>
+    <p>Estimated Duration: ${estimatedMinutes.toFixed(1)} minutes</p>
+    <p>Assumption: 0.5 seconds per node per request, processed sequentially.</p>
+  `;
+});

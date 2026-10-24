@@ -659,3 +659,102 @@ footer {
     padding: 10px;
   }
 }
+
+/* Simulation Lab - Professional Styling */
+
+#runSimulation {
+  width: 100%;
+  padding: 13px 20px;
+  margin-top: 18px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #7058e8, #19c8e8);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#runSimulation:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(25, 200, 232, 0.2);
+}
+
+#simulation .simulation-placeholder {
+  background: rgba(112, 88, 232, 0.08);
+  border: 1px solid rgba(112, 88, 232, 0.25);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 18px;
+  text-align: center;
+}
+
+#simulation .simulation-placeholder h4 {
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+#simulation .simulation-placeholder p {
+  color: #aabbdb;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 8px 0;
+}
+
+/* Premium Estimated Simulation UI */
+
+#simulation {
+  position: relative;
+  overflow: hidden;
+}
+
+#simulation .simulation-placeholder {
+  background: linear-gradient(
+    145deg,
+    rgba(93, 75, 190, 0.16),
+    rgba(12, 28, 55, 0.85)
+  );
+  border: 1px solid rgba(87, 204, 255, 0.28);
+  border-radius: 16px;
+  padding: 26px 20px;
+  box-shadow: inset 0 0 24px rgba(87, 204, 255, 0.04);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#simulation .simulation-placeholder:hover {
+  border-color: rgba(37, 211, 255, 0.65);
+  box-shadow: 0 0 25px rgba(37, 211, 255, 0.10);
+}
+
+#simulation .simulation-placeholder h4 {
+  font-size: 19px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.4px;
+  margin-bottom: 20px;
+}
+
+#simulation .simulation-placeholder p {
+  padding: 9px 12px;
+  margin: 7px 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #c5d8ff;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+#simulation .simulation-placeholder p:hover {
+  background: rgba(37, 211, 255, 0.09);
+}
+
+#simulation .tag.amber {
+  border: 1px solid rgba(255, 190, 60, 0.45);
+  box-shadow: 0 0 14px rgba(255, 190, 60, 0.12);
+}
+
+#runSimulation {
+  letter-spacing: 0.4px;
+  box-shadow: 0 5px 18px rgba(28, 171, 238, 0.16);
+}
