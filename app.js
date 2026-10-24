@@ -399,12 +399,13 @@ try {
     body: JSON.stringify(payload)
   });
 
-  if (!response.ok) {
-    throw new Error("AI analysis request failed");
-  }
+ if (!response.ok) {
+  const errorDetails = await response.text();
+  throw new Error(`HTTP ${response.status}: ${errorDetails}`);
+}
 
   const result = await response.text();
-$("aiResult").innerHTML = DOMPurify.sanitize(marked.parse(result));
+$("aiResult").textContent = result;
   $("aiStatus").textContent = "AI analysis completed successfully!";
 } catch (error) {
   $("aiStatus").textContent = "AI analysis failed. Please try again.";
