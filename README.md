@@ -1,4 +1,4 @@
-# AI Workflow Time Machine — Phase 2
+# AI Workflow Time Machine 
 
 ## Run
 Open this folder in VS Code and run `index.html` with Live Server. No build step needed.
